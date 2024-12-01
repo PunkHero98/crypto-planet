@@ -7,10 +7,10 @@ function validateEmail(email){
 
 function validateLogin(email , password){
     if(!(email.value === user.email)){
-        password.classList.remove('stroke');
-        password.classList.add('red-stroke');
-        password.nextElementSibling.classList.remove('opacity-0');
-        password.nextElementSibling.innerHTML = 'Wrong Email';
+        email.classList.remove('stroke');
+        email.classList.add('red-stroke');
+        email.nextElementSibling.classList.remove('opacity-0');
+        email.nextElementSibling.innerHTML = 'Wrong Email';
         return;
     }
     if(!(password.value === user.password)){
