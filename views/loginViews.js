@@ -42,6 +42,7 @@ function generateHTML() {
 
 function scriptLoginViews(){
     const newcontent = document.createElement("script");
+    newcontent.classList.add('login_script')
     newcontent.innerHTML = generateScript();
     return newcontent;
   }

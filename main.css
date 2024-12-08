@@ -3,6 +3,10 @@
     --secondary-color: #CFAF30;
     --stroke-color: #2B3139;
     --lighterStroke-color: #606C80;
+    --text-color: rgb(148 163 184);
+    --tranformDeg: rotate(45deg) ;
+    --translatePos: ;
+    --translatePosForRegis: -45px 0px ;
 }
 
 .lighter-bg{
@@ -17,6 +21,9 @@
 
 .stroke{
     border: 1px solid var(--stroke-color);
+}
+.topStroke {
+    border-top: 1px solid var(--stroke-color);
 }
 .stroke-bg{
     background-color: var(--stroke-color);
@@ -33,6 +40,10 @@
 }
 .secondary-text {
     color: var(--secondary-color)
+}
+
+.border-custom {
+    border-radius: 0 7px 7px 0;
 }
 /* ------------------------------------------------------------------------------------------ */
 .active-btn{
@@ -64,9 +75,8 @@
     top:-6px;
     left: 20px;
 }
-
 /* ------------------------------------------------------------------------------------------ */
-.mainBlock__leftSide .leftSide__assets::after {
+.registerPage .register__btnBlock .btnBlock__back::before{
     content: "";
     display: inline-block;
     width: 15px;
@@ -74,8 +84,39 @@
     border-right: 3px solid white;
     border-top: 3px solid white;
     position: relative;
+    transform:  translate(-25px , 0) rotate(225deg);
+} 
+@keyframes backwardIcon {
+    0%{
+        transform: translate(-25px, 0) rotate(225deg) ;
+    }
+    50%{
+        transform: translate(-45px, 0) rotate(225deg) ;
+    }
+    100%{
+        transform: translate(-25px, 0) rotate(225deg) ;
+    } 
+}
+.registerPage .register__btnBlock .btnBlock__back:hover::before{
+    animation: backwardIcon 1s ease-in-out infinite ;
+}
+.registerPage .register_form__DoBBlock input::-webkit-inner-spin-button,
+.registerPage .register_form__DoBBlock input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+/* ------------------------------------------------------------------------------------------ */
+.mainBlock__leftSide .leftSide__assets::after {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-right: 3px solid var(--text-color);
+    border-top: 3px solid var(--text-color);
+    position: relative;
     left: 87px;
-    transform: rotate(45deg);
+    transition: 0.3s ease;
+    transform: var(--tranformDeg);
+    translate : var(--translatePos ) ;
 }
 
 .mainBlock__leftSide .leftSide__orders::after {
@@ -83,22 +124,26 @@
     display: inline-block;
     width: 15px;
     height: 15px;
-    border-right: 3px solid white;
-    border-top: 3px solid white;
+    border-right: 3px solid var(--text-color);
+    border-top: 3px solid var(--text-color);
     position: relative;
     left: 82px;
-    transform: rotate(45deg);
+    transition: 0.3s ease;
+    transform: var(--tranformDeg);
+    translate : var(--translatePos) ;
 }
 .mainBlock__leftSide .leftSide__account::after {
     content: "";
     display: inline-block;
     width: 15px;
     height: 15px;
-    border-right: 3px solid white;
-    border-top: 3px solid white;
+    border-right: 3px solid var(--text-color);
+    border-top: 3px solid var(--text-color);
     position: relative;
     left: 70px;
-    transform: rotate(45deg);
+    transition: 0.3s ease;
+    transform: var(--tranformDeg);
+    translate : var(--translatePos) ;
 }
 
 .personalInfo_name::after{

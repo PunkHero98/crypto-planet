@@ -1,5 +1,6 @@
-import { validateEmail , validateLogin } from "./validateLogin.js";
-
+import { fetchLogin, validateEmail } from "./validateLogin.js";
+import { registerViews } from "../../views/registerView.js";
+import addEventRegister from "../registerFunction/addEventRegister.js";
 export default function addEventLogin(){
     document.querySelector('#login-form').addEventListener('submit' , (event)=>{
         event.preventDefault();
@@ -11,7 +12,7 @@ export default function addEventLogin(){
             email.nextElementSibling.classList.remove('opacity-0');
             return;
         }
-        validateLogin(email , password);
+        fetchLogin(email.value , password.value);
     })
     
     document.querySelector('#showPassword-icon').addEventListener('click' , ()=>{
@@ -25,5 +26,14 @@ export default function addEventLogin(){
             password.nextElementSibling.classList.add('fa-eye-slash');
             password.setAttribute('type' , 'password');
         }
+    })
+
+    document.querySelector('.login-container__Signup-Btn').addEventListener('click' , function(){
+        const scriptTag = document.querySelector('script[type=module]');
+
+        scriptTag.insertAdjacentElement('beforeBegin' , registerViews());
+        document.querySelector('script.login_script').remove();
+        document.querySelector('.loginPage').remove();
+        addEventRegister();
     })
 }
